@@ -43,6 +43,10 @@ function App(props) {
         role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading">
+          <Todo />
+          <Todo />
+          <Todo />
+
       </ul>
     </div>
   );
