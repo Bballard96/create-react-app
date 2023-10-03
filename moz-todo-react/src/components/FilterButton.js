@@ -10,3 +10,5 @@ function FilterButton(props) {
         </button>
     )
 }
+
+export default FilterButton
