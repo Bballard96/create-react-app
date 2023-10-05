@@ -2,8 +2,12 @@ import React from "react";
 
 
 function Form(props) {
-    return (
-<form>
+  function handleSubmit(e) {
+    e.preventDefault()
+      alert("Yes!")
+  }
+  return (
+<form onSubmit={handleSubmit}>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
             What needs to be done?
@@ -24,3 +28,4 @@ function Form(props) {
 }
 
 export default Form;
+// export default handleSubmit;
