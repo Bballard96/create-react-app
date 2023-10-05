@@ -4,7 +4,7 @@ import React from "react";
 function Form(props) {
   function handleSubmit(e) {
     e.preventDefault()
-      alert("Yes!")
+      alert("Hello, world!")
   }
   return (
 <form onSubmit={handleSubmit}>
