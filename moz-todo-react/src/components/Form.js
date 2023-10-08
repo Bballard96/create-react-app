@@ -3,6 +3,9 @@ import React, {useState} from "react";
 
 function Form(props) {
   const [name, setName] = useState("")
+  function handleChange(e) {
+    console.log(e.target.value)
+  }
   function handleSubmit(e) {
     e.preventDefault()
         props.addTask("Hello!")
@@ -15,6 +18,7 @@ function Form(props) {
           </label>
         </h2>
         <input
+          onChange={handleChange}
           value={name}
           type="text"
           id="new-todo-input"
