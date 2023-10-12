@@ -24,6 +24,7 @@ function App(props) {
     const remainingTasks = tasks.filter((task) => id !== task.id)
     setTasks(remainingTasks);
   }
+  // comment to push
   const taskList = tasks.map((task) => (
     <Todo
     id={task.id}
