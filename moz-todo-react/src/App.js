@@ -5,6 +5,8 @@ import Form from "./components/Form";
 import { nanoid } from "nanoid"
 
 function App(props) {
+  const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+  const headingText = `${taskList.length} ${tasksNoun} tasks remaining`
   const [tasks, setTasks] = useState(props.tasks)
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false}
