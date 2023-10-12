@@ -5,8 +5,6 @@ import Form from "./components/Form";
 import { nanoid } from "nanoid"
 
 function App(props) {
-  const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
-  const headingText = `${taskList.length} ${tasksNoun} tasks remaining`
   const [tasks, setTasks] = useState(props.tasks)
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false}
@@ -14,12 +12,14 @@ function App(props) {
   }
   const taskList = tasks.map((task) => (
     <Todo
-      id={task.id}
-      name={task.name}
-      completed={task.completed}
-      key={task.id}
+    id={task.id}
+    name={task.name}
+    completed={task.completed}
+    key={task.id}
     />
-  ));
+    ));
+    const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+    const headingText = `${taskList.length} ${tasksNoun} tasks remaining`
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
