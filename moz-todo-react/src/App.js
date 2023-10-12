@@ -10,12 +10,16 @@ function App(props) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false}
     setTasks([...tasks, newTask])
   }
+  function toggleTaskCompleted(id) {
+    console.log(tasks[0])
+  }
   const taskList = tasks.map((task) => (
     <Todo
     id={task.id}
     name={task.name}
     completed={task.completed}
     key={task.id}
+    toggleTaskCompleted={toggleTaskCompleted}
     />
     ));
     const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
