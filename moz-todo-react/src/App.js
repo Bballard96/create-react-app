@@ -43,21 +43,29 @@ function App(props) {
   }
 
   // comment to push
-  const taskList = tasks.map((task) => (
+  const taskList = tasks
+  .filter(FILTER_MAP[filter])
+  .map((task) => (
     <Todo
-    id={task.id}
-    name={task.name}
-    completed={task.completed}
-    key={task.id}
-    toggleTaskCompleted={toggleTaskCompleted}
-    deleteTask={deleteTask}
-    editTask={editTask}
+      id={task.id}
+      name={task.name}
+      completed={task.completed}
+      key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
+      editTask={editTask}
     />
-    ));
+  ));
+
     const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
     const headingText = `${taskList.length} ${tasksNoun} tasks remaining`
     const filterList = FILTER_NAMES.map((name) => (
-      <FilterButton key={name} name={name} />
+      <FilterButton 
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+        />
     ))
   return (
     <div className="todoapp stack-large">
@@ -73,9 +81,7 @@ function App(props) {
           autoComplete="off"
         />
       <div className="filters btn-group stack-exception">
-       <FilterButton />
-       <FilterButton />
-       <FilterButton />
+       {filterList}
 
       </div>
       <h2 id="list-heading">{headingText}</h2>
