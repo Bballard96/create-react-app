@@ -11,7 +11,8 @@ function Todo(props) {
         <input id={props.id} className="todo-text" type="text" />
       </div>
       <div className="btn-group">
-        <button type="button" className="btn todo-cancel">
+        <button type="button" className="btn todo-cancel"
+        onClick={() => setEditing(false)}>
           Cancel
           <span className="visually-hidden">renaming {props.name}</span>
         </button>
@@ -36,9 +37,9 @@ function Todo(props) {
         </label>
       </div>
       <div className="btn-group">
-        <button type="button" className="btn">
-          Edit <span className="visually-hidden">{props.name}</span>
-        </button>
+      <button type="button" className="btn" onClick={() => setEditing(true)}>
+        Edit <span className="visually-hidden">{props.name}</span>
+      </button>
         <button
           type="button"
           className="btn btn__danger"
@@ -51,8 +52,8 @@ function Todo(props) {
   
     // console.log(props)
     return (
-        <li className="todo stack-small">
-      <div className="c-cb">
+        <li className="todo">{isEditing ? editingTemplate : viewTemplate} 
+      {/* <div className="c-cb">
         <input 
         id={props.id}
         type="checkbox"
@@ -73,7 +74,7 @@ function Todo(props) {
         onClick={() => props.deleteTask(props.id)}>
           Delete <span className="visually-hidden">{props.name}</span>
         </button>
-      </div>
+      </div> */}
     </li>
 
     )
