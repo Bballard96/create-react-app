@@ -56,6 +56,9 @@ function App(props) {
     ));
     const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
     const headingText = `${taskList.length} ${tasksNoun} tasks remaining`
+    const filterList = FILTER_NAMES.map((name) => (
+      <FilterButton key={name} name={name} />
+    ))
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
